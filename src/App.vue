@@ -1,6 +1,6 @@
 <template>
   <v-app id="inspire">
-    <div v-if="auth">
+    <div v-if="isLoggedIn">
       <v-navigation-drawer v-model="drawer" app>
         <Menu />
       </v-navigation-drawer>
@@ -35,7 +35,10 @@ export default {
 
   data: () => ({
     drawer: null,
-    auth: false,
+    isLoggedIn: false,
   }),
+  created() {
+    this.isLoggedIn = this.$store.getters.isLoggedIn;
+  },
 };
 </script>
